@@ -1,0 +1,54 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+<div class="content">
+    {% if algo %}
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Saved algo "{{ algo.name }}:</h3>
+                <h4>signal: {{ algo.signal }}</h4>
+                <h4>trade: {{ algo.trade }}</h4>
+                <h4>ticker: {{ algo.ticker }}</h4>
+                <h4>average PnL: {{ algo.average_pnl }}</h4>
+            </div>
+        </div>
+    {% endif %}
+
+    <h2><a href="/algo-table">Algo table</a></h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <form action="/add-algo/" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="algo-name">Algo name</label>
+                    <input id="algo-name" name="algo-name" required>
+                </div>
+                <div>
+                    <label for="signal">Signal</label>
+                    <input id="signal" name="signal" required>
+                </div>
+                <div>
+                    <label for="trade">Trade</label>
+                    <input id="trade" name="trade" required>
+                </div>
+                <div>
+                    <label for="ticker">Ticker</label>
+                    <input id="ticker" name="ticker" required>
+                </div>
+
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

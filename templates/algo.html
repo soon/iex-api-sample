@@ -1,0 +1,58 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>algo-table</title>
+</head>
+<body>
+<div class="content">
+<h2><a href="/algo-table">Back to table</a></h2>
+    {% if not algo %}
+        <h2>Algo not found</h2>
+    {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Close prices</h2>
+                <div id="close" style="width:1260px;height:250px;"></div>
+                <h2>PnL</h2>
+                <div id="pnl" style="width:1260px;height:250px;"></div>
+                <h2>Positions</h2>
+                <div id="positions" style="width:1260px;height:250px;"></div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+<script src="{% static 'js/plotly-latest.min.js' %}"></script>
+<script>
+    var close = document.getElementById('close');
+    Plotly.plot(close, [{
+        x: {{ date_series|safe }},
+        y: {{ close_series|safe }}
+    }], {
+        margin: {t: 0}
+    });
+
+    var pnl = document.getElementById('pnl');
+    Plotly.plot(pnl, [{
+        x: {{ date_series|safe }},
+        y: {{ pnl_series|safe }}
+    }], {
+        margin: {t: 0}
+    });
+
+    var positions = document.getElementById('positions');
+    Plotly.plot(positions, [{
+        x: {{ date_series|safe }},
+        y: {{ position_series|safe }}
+    }], {
+        margin: {t: 0}
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>algo-table</title>
+</head>
+<body>
+<div class="content">
+<h2><a href="/">home</a></h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>signal</th>
+                    <th>trade</th>
+                    <th>ticker</th>
+                    <th>average PnL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for algo in algos %}
+                    <tr>
+                        <td>
+                            <a href="{{ algo.name }}">{{ algo.name }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ algo.name }}">{{ algo.signal }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ algo.name }}">{{ algo.trade }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ algo.name }}">{{ algo.ticker }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ algo.name }}">{{ algo.average_pnl }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
