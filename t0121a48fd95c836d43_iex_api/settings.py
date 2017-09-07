@@ -26,7 +26,8 @@ SECRET_KEY = '1k+)d3*velc%x6(3^a=40e72&4c)u32c0l=@(l+y(g1#83ua20'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'evening-falls-54035.herokuapp.com'
+    'evening-falls-54035.herokuapp.com',
+    'localhost'
 ]
 
 # Application definition

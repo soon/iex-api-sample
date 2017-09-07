@@ -7,11 +7,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>algo-table</title>
+    <title>plots</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-<div class="content">
-<h2><a href="/algo-table">Back to table</a></h2>
+<div class="container">
+    <h2><a href="/algo-table">Back to table</a></h2>
     {% if not algo %}
         <h2>Algo not found</h2>
     {% else %}
@@ -27,6 +28,8 @@
         </div>
     {% endif %}
 </div>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/plotly-latest.min.js' %}"></script>
 <script>
     var close = document.getElementById('close');
