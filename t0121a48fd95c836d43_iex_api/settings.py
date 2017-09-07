@@ -25,7 +25,9 @@ SECRET_KEY = '1k+)d3*velc%x6(3^a=40e72&4c)u32c0l=@(l+y(g1#83ua20'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'vening-falls-54035.herokuapp.com'
+]
 
 # Application definition
 
